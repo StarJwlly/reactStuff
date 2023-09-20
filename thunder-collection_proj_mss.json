@@ -1,0 +1,116 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "proj_mss",
+    "dateExported": "2023-09-20T19:24:42.296Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "d013e11f-4f52-4542-b657-1aa0c933ff19",
+            "name": "lembretes",
+            "containerId": "",
+            "created": "2023-09-20T19:19:19.272Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "16ee66bb-cdf7-47f4-bcfb-2d77af77128c",
+            "name": "observacoes",
+            "containerId": "",
+            "created": "2023-09-20T19:20:55.321Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "de304be7-59d2-42f3-a649-f347a3f2fd9c",
+            "name": "eventos",
+            "containerId": "",
+            "created": "2023-09-20T19:22:24.274Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "8b3f7375-c207-43d5-baca-d3f96ce4a90e",
+            "colId": "48448f2b-a182-47d9-b4f2-7d627a338a87",
+            "containerId": "d013e11f-4f52-4542-b657-1aa0c933ff19",
+            "name": "get",
+            "url": "http://localhost:4000/lembretes",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-09-20T19:19:27.684Z",
+            "modified": "2023-09-20T19:19:48.597Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "43f24157-8653-4f51-b2cf-e4705339ea96",
+            "colId": "48448f2b-a182-47d9-b4f2-7d627a338a87",
+            "containerId": "d013e11f-4f52-4542-b657-1aa0c933ff19",
+            "name": "post",
+            "url": "http://localhost:4000/lembretes",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-09-20T19:20:05.624Z",
+            "modified": "2023-09-20T19:20:39.412Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"texto\": \"teste\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a568d1f3-8690-479a-88d5-f88adfe53fe9",
+            "colId": "48448f2b-a182-47d9-b4f2-7d627a338a87",
+            "containerId": "16ee66bb-cdf7-47f4-bcfb-2d77af77128c",
+            "name": "get",
+            "url": "http://localhost:5000/lembretes/1/observacoes",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-09-20T19:21:05.859Z",
+            "modified": "2023-09-20T19:22:02.540Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "60e7e997-6479-4244-bea2-992aa5dcc898",
+            "colId": "48448f2b-a182-47d9-b4f2-7d627a338a87",
+            "containerId": "16ee66bb-cdf7-47f4-bcfb-2d77af77128c",
+            "name": "post",
+            "url": "http://localhost:5000/lembretes/1/observacoes",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-09-20T19:21:26.298Z",
+            "modified": "2023-09-20T19:21:58.557Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"texto\": \"teste\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f8da4350-5f6a-4f7f-a249-1347fbcda3be",
+            "colId": "48448f2b-a182-47d9-b4f2-7d627a338a87",
+            "containerId": "de304be7-59d2-42f3-a649-f347a3f2fd9c",
+            "name": "post",
+            "url": "http://localhost:10000/eventos",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-09-20T19:22:40.273Z",
+            "modified": "2023-09-20T19:24:32.545Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"tipo\": \"teste\"\n  \"dados\": {\"teste\": \"teste\"}\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
