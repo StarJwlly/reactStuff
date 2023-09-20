@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 const { v4: uuidv4 } = require('uuid')
 const axios = require('axios')
 
+require('dotenv').config()
+
 const app = express()
 const observacoesPorLembreteId = {}
 
@@ -32,6 +34,6 @@ app.post('/eventos', (req, res) => {
     res.status(200).send({msg: "ok"})
 })
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
     console.log('observacoes porta 5000')
 })
