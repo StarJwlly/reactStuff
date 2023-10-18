@@ -1,6 +1,6 @@
 const axios = require('axios')
 const express = require('express')
-
+require('dotenv').config()
 const app = express()
 app.use(express.json())
 
@@ -26,4 +26,4 @@ app.post("/eventos", (req, res) => {
     res.status(200).send(baseConsulta)
 })
 
-app.listen(6000, () => console.log("consultas porta 6000"))
+app.listen(process.env.PORT, () => console.log("consultas porta 6000"))

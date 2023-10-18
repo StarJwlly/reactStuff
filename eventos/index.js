@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+require('dotenv').config()
 const axios = require('axios')
 
 const app = express();
@@ -13,6 +14,6 @@ app.post('/eventos', (req, res) => {
     res.status(200).send({msg: "ok"})
 })
 
-app.listen(10000, () => {
+app.listen(process.env.PORT, () => {
     console.log("barramento de eventos porta 10000")
 })
