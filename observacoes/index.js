@@ -35,5 +35,5 @@ app.post('/eventos', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-    console.log('observacoes porta 5000')
+    console.log(`observacoes porta ${process.env.PORT}`)
 })

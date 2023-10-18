@@ -26,4 +26,4 @@ app.post("/eventos", (req, res) => {
     res.status(200).send(baseConsulta)
 })
 
-app.listen(process.env.PORT, () => console.log("consultas porta 6000"))
+app.listen(process.env.PORT, () => console.log(`consultas porta ${process.env.PORT}`))

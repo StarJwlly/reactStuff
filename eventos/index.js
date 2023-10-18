@@ -15,5 +15,5 @@ app.post('/eventos', (req, res) => {
 })
 
 app.listen(process.env.PORT, () => {
-    console.log("barramento de eventos porta 10000")
+    console.log(`barramento de eventos porta ${process.env.PORT}`)
 })
