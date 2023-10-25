@@ -11,7 +11,7 @@ const funcoes = {
         baseConsulta[lembrete.contador] = lembrete
     },
     ObservacaoCriada: (observacao) => {
-        const observacoes = baseConsulta[observacao.lembreteId] || []
+        const observacoes = baseConsulta[observacao.lembreteId]["observacoes"] || []
         observacoes.push(observacao)
         baseConsulta[observacao.lembreteId]["observacoes"] = observacoes
     }
