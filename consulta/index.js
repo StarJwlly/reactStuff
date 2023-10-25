@@ -22,7 +22,7 @@ app.get("/lembretes", (req, res) => {
 })
 
 app.post("/eventos", (req, res) => {
-    funcoes[req.body.tipo](req.body.dados)
+    funcoes[req.body.type](req.body.payload)
     res.status(200).send(baseConsulta)
 })
 

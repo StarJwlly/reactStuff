@@ -23,8 +23,8 @@ app.post('/lembretes/:id/observacoes', async (req, res) => {
 
     observacoesPorLembreteId[req.params.id] = observacoesDoLembrete
     await axios.post("http://localhost:10000/eventos", {
-        tipo: "ObservacaoCriada",
-        dados: {id: idObs, texto, lembreteId: req.params.id}
+        type: "ObservacaoCriada",
+        payload: {id: idObs, texto, lembreteId: req.params.id}
     })
     res.status(201).send(observacoesDoLembrete)
 })
