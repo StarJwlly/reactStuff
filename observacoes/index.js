@@ -7,7 +7,22 @@ require('dotenv').config()
 
 const app = express()
 const observacoesPorLembreteId = {}
-
+const funcoes = {
+    ObservacaoClassificada: (observacao) => {
+        const observacoes = observacoesPorLembreteId[observacao.lembreteId]
+        const obs = observacoes.find(x => x.id == observacao.id)
+        obs.status = observacao.status
+        axios.post('https://localhost:10000/eventos', {
+            type: 'ObservacaoAtualizada',
+            payload: {
+                id: obs.id,
+                texto: obs.texto,
+                lembreteId: obs.lembreteId,
+                status: obs.status
+            }
+        })
+    }
+}
 
 app.use(bodyParser.json())
 
@@ -24,13 +39,16 @@ app.post('/lembretes/:id/observacoes', async (req, res) => {
     observacoesPorLembreteId[req.params.id] = observacoesDoLembrete
     await axios.post("http://localhost:10000/eventos", {
         type: "ObservacaoCriada",
-        payload: {id: idObs, texto, lembreteId: req.params.id}
+        payload: {id: idObs, texto, lembreteId: req.params.id, status: 'aguardando'}
     })
     res.status(201).send(observacoesDoLembrete)
 })
 
 app.post('/eventos', (req, res) => {
     console.log(req.body)
+    try{
+        funcoes[req.body.type](req.body.payload)
+    }catch(e){}
     res.status(200).send({msg: "ok"})
 })
 
