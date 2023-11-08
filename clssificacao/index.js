@@ -23,7 +23,7 @@ app.post('/eventos', async (req, res) => {
     try{
         funcoes[req.body.type](req.body.payload)
     }catch(e){}        
-    res.status(200).send(temp)
+    res.status(200).send({msg: "ok"})
 })
 
 

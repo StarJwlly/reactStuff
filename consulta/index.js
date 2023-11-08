@@ -33,4 +33,10 @@ app.post("/eventos", (req, res) => {
     res.status(200).send(baseConsulta)
 })
 
-app.listen(process.env.PORT, () => console.log(`consultas porta ${process.env.PORT}`))
+app.listen(process.env.PORT, async () => {
+    const eventos = await axios.get("http://localhost:10000/eventos")
+    eventos.data.forEach(x => {
+        try{ funcoes[x.type](x.payload) } catch(e){}
+    })
+    console.log(`consultas porta ${process.env.PORT}`)
+})
