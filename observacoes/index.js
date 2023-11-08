@@ -17,7 +17,7 @@ const funcoes = {
             payload: {
                 id: obs.id,
                 texto: obs.texto,
-                lembreteId: obs.lembreteId,
+                lembreteId: observacao.lembreteId,
                 status: obs.status
             }
         })

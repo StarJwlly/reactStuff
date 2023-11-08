@@ -7,11 +7,11 @@ app.use(express.json())
 
 const funcoes = {
     ObservacaoCriada: (observacao) => {
-        console.log (observacao)
-        if (observacao.texto.toLowerCase().includes('importante'))
+        if (observacao.texto.toLowerCase().includes('importante')){
           observacao.status = 'importante'
-        else   
+        }else{
           observacao.status = 'comum'
+        }
         axios.post("http://localhost:10000/eventos", {
             type: 'ObservacaoClassificada',
             payload: observacao
@@ -28,4 +28,10 @@ app.post('/eventos', async (req, res) => {
 
 
 
-app.listen(process.env.PORT, () => console.log(`classificacao porta ${process.env.PORT}`))
+app.listen(process.env.PORT, async () => {
+    const eventos = await axios.get("http://localhost:10000/eventos")
+    eventos.data.forEach(x => {
+        try{ funcoes[x.type](x.payload) } catch(e){}
+    })
+    console.log(`classificacao porta ${process.env.PORT}`)
+})

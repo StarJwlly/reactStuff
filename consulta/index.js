@@ -16,6 +16,7 @@ const funcoes = {
         baseConsulta[observacao.lembreteId]["observacoes"] = observacoes
     },
     ObservacaoAtualizada: (observacao) => {
+        console.log(observacao)
         const observacoes = baseConsulta[observacao.lembreteId]['observacoes']
         const index = observacoes.findIndex(x => x.id == observacao.id)
         baseConsulta[observacao.lembreteId]["observacoes"][index] = observacao
@@ -36,7 +37,7 @@ app.post("/eventos", (req, res) => {
 app.listen(process.env.PORT, async () => {
     const eventos = await axios.get("http://localhost:10000/eventos")
     eventos.data.forEach(x => {
-        try{ funcoes[x.type](x.payload) } catch(e){}
+        try{ funcoes[x.type](x.payload) } catch(e){console.log(e)}
     })
     console.log(`consultas porta ${process.env.PORT}`)
 })

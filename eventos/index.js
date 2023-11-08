@@ -11,10 +11,10 @@ const eventos = []
 app.post('/eventos', (req, res) => {
     const evento = req.body
     eventos.push(evento)
-    axios.post("http://localhost:4000/eventos", evento)
-    axios.post("http://localhost:5000/eventos", evento)
-    axios.post("http://localhost:6000/eventos", evento)
-    axios.post("http://localhost:7000/eventos", evento)
+    try {axios.post("http://localhost:4000/eventos", evento)} catch(e){}
+    try {axios.post("http://localhost:5000/eventos", evento)} catch(e){}
+    try {axios.post("http://localhost:6000/eventos", evento)} catch(e){}
+    try {axios.post("http://localhost:7000/eventos", evento)} catch(e){}
     res.status(200).send({msg: "ok"})
 })
 
